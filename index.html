@@ -5,6 +5,7 @@
 	<title>Math</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="console.css">
+	<link rel="stylesheet" href="message.css">
 	<script src="formatting.js"></script>
 	<script src="console.js"></script>
 </head>
@@ -68,12 +69,16 @@
 		Import your module as:
 	</div>
 </div>
-<div id="msg-wrapper">
+<div id="msg-wrapper" class="active">
 	<div class="msg">
 		<h2>Message title</h2>
-		<div class="content">This is message content. It can include any html entities.</div>
+		<div class="content">
+			This is message content. It can include any html entities.<hr>
+			<img src="img.jpg" />
+		</div>
 		<div class="actions">
-			
+			<button type="button">Apply</button>
+			<button type="button">Close</button>
 		</div>
 	</div>
 </div>
