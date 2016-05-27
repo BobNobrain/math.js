@@ -36,23 +36,27 @@ window.addEventListener('load', function()
 		bottomPanel: document.getElementById('input'),
 		text: document.getElementById('command'),
 		output: document.getElementById('output'),
-		outputScroller: document.getElementById('output-clone')
+		outputScroller: document.getElementById('output-clone'),
+		tabs: {
+			console: [document.getElementById('console-head'), document.getElementById('console-body')],
+			modules: [document.getElementById('modules-head'), document.getElementById('modules-body')],
+			code: [document.getElementById('code-head'), document.getElementById('code-body')]
+		}
 	};
 
-	window.elements.dragger.addEventListener('mouseDown', function(ev)
+	// tabs switching
+	Object.getOwnPropertyNames(window.elements.tabs).forEach(function(item, i, arr)
 	{
-
-	});
-
-	document.addEventListener('mouseUp', function(ev)
-	{
-		var up = document.getElementById('output-container');
-		var down = document.getElementById('input');
-	});
-
-	window.elements.dragger.addEventListener('doubleclick', function()
-	{
-
+		window.elements.tabs[item][0].addEventListener('click',function()
+		{
+			arr.forEach(function(item)
+			{
+				window.elements.tabs[item][0].classList.remove('active');
+				window.elements.tabs[item][1].classList.remove('active');
+			});
+			window.elements.tabs[item][0].classList.add('active');
+			window.elements.tabs[item][1].classList.add('active');
+		});
 	});
 
 	window.elements.text.addEventListener('keypress', function(ev)
@@ -318,16 +322,18 @@ function formOutput(obj)
 				'function', 'this', 'new',
 				'return',
 				'if', 'for', 'while', 'do', 'else',
-				'switch', 'null'
+				'switch'
 			];
 			keywords.forEach(function(item)
 			{
 				code=code.replace(new RegExp('([^A-z0-9_$]|^)('+item+')([^A-z0-9_$]|$)', 'g'),
 								  '$1<span class="keyword1">$2</span>$3');
 			});
-			keywords=['break', 'continue',
+			keywords=['null',
+				'break', 'continue',
 				'try', 'catch', 'finally',
 				'case', 'default', 'typeof', 'in',
+				'extends',
 				'\\[native code\\]'
 			];
 

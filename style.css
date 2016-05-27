@@ -2,188 +2,51 @@ html, body {
 	width: 100%; height: 100%;
 	padding: 0; margin: 0;
 	font-family: Inconsolata, Consolas, monospace;
-}
-
-#output-container {
-	height: 80%;
-}
-
-#output-clone {
-	height: calc(100% - 5px);
-	overflow: auto;
-}
-
-#output {
 	background: #222;
+	color: #bbb;
+}
+
+/* outer structure */
+
+#tab-heads {
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: stretch;
-	padding-bottom: 10px;
-	box-sizing: border-box;
-	min-height: 100%;
-}
-
-#output .item {
-	background: #292929;
-	border-radius: 10px 10px 0 10px;
-	margin: 7px 10px;
-	padding: 10px 15px;
-	box-sizing: border-box;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-	word-wrap: break-word;
-	position: relative;
-}
-
-#output .item.input {
-	background: transparent;
-	padding: 0;
-	box-shadow: none;
-	margin-top: 25px;
-}
-
-#output .item .time,
-#output .item .date {
-	color: #555;
-	display: inline-block;
-	float: right;
-	position: relative;
-	top: -1.2em; left: 0.5em;
-	font-size: 0.8em;
-	font-weight: bold;
-}
-#output .item.input .time,
-#output .item.input .date {
-	left: calc(0.5em - 15px)
-}
-
-#output .item .date {
-	visibility: hidden;
-	margin-right: 7px;
-	font-weight: normal;
-}
-#output .item:hover .date {
-	visibility: visible;
-}
-
-#output .item .type {
-	float: left;
-	position: absolute;
-	color: #555;
-	font-size: 0.8em;
-	font-weight: bold;
-	top: -0.5em;
-}
-
-#output .item .content {
-	color: #bbb;
-}
-#output .item .content.string,
-#output .item .content .string {
-	color: #79e;
-}
-#output .item .content.number,
-#output .item .content .number {
-	color: #e97;
-	/* color: #f55; */
-}
-#output .item .content.bool,
-#output .item .content .bool {
-	color: #597;
-	font-weight: bold;
-}
-#output .item .content .bleak {
-	color: #555;
-}
-#output .item .content .keyword1 {
-	color: #c4c;
-	font-weight: bold;
-}
-#output .item .content .keyword2 {
-	color: #c44;
-	font-weight: normal;
-}
-#output .item .content .keyword3 {
-	color: #383;
-	font-weight: bold;
-}
-
-#output .item .content .left-indent {
-	margin-left: 2em;
-}
-#output .item .content .comma-after::after {
-	content: ',';
-}
-
-#output .item .content.warning,
-#output .item .content.error,
-#output .item .content.input {
-	font-weight: bold;
-	color: #f55;
-	margin-left: 20px;
-	position: relative;
-}
-#output .item .content.warning {
-	color: #f75;
-}
-#output .item .content.input {
-	color: #555;
-}
-#output .item .content.warning::before {
-	display: block;
-	content: '⚠';
-	font-size: 20px; font-weight: normal;
-	position: absolute;
-	left: -20px; top: -5px;
-}
-#output .item .content.error::before {
-	display: block;
-	content: '❌';
-	font-size: 16px; font-weight: normal;
-	position: absolute;
-	left: -22px; top: -2px;
-}
-#output .item .content.input::before {
-	display: block;
-	content: '>>';
-	font-size: 16px; font-weight: bold;
-	position: absolute;
-	left: -22px; top: 0px;
-}
-
-#dragger {
-	height: 5px;
-	background: #232323;
-	position: relative;
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-}
-#dragger::before {
-	position: absolute;
-	bottom: -4px;
-	left: 0px;
 	width: 100%;
-	display: block;
-	content: '...';
-	text-align: center;
-	color: #bbb;
-}
+	flex-direction: row;
+	justify-content: flex-start;
+	height: 3em;
+	border-bottom: 2px solid #bbb;
 
-#input {
-	background: #333;
-	height: 20%;
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
 	position: relative;
+	z-index: 10;
 }
 
-#command {
-	height: calc(100% - 20px);
-	width: calc(100% - 20px);
-	resize: none;
-	margin: 10px;
-	padding: 3px 5px;
+#tab-heads .tab-head {
+	min-width: 100px;
+	height: 100%;
+	padding: 1em;
 	box-sizing: border-box;
-	color: #bbb;
-	background: #555;
-	border: none;
-	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-	border-radius: 8px;
+	cursor: pointer;
+}
+.tab-head:hover {
+	background: #777;
+	color: #333;
+}
+.tab-head.active {
+	background: #bbb;
+	color: #333;
+	font-weight: bold;
+}
+
+#tab-bodies {
+	width: 100%;
+	height: calc(100% - 3em - 2px);
+}
+
+#tab-bodies .tab-body {
+	height: 100%;
+	display: none;
+}
+#tab-bodies .tab-body.active {
+	display: block;
 }
