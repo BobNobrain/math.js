@@ -3,11 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Math</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="console.css">
-	<link rel="stylesheet" href="message.css">
-	<script src="formatting.js"></script>
-	<script src="console.js"></script>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/console.css">
+	<link rel="stylesheet" href="styles/message.css">
+	<script src="script/formatting.js"></script>
+	<script src="script/message.js"></script>
+	<script src="script/console.js"></script>
 </head>
 <body>
 <div id="tab-heads">
@@ -64,23 +65,20 @@
 	</div>
 	<div class="tab-body" id="modules-body">
 		Select modules to use:
+		<ul id="modules-list">
+			<li><label><input type="checkbox" />math.core</label></li>
+			<li><label><input type="checkbox" />math.func</label></li>
+			<li><label><input type="checkbox" />math.stat</label></li>
+			<li><label><input type="checkbox" />neuro.core</label></li>
+			<li><label><input type="checkbox" />neuro.ui</label></li>
+			<li><label><input type="checkbox" />graph.core</label></li>
+			<li><label><input type="checkbox" />graph.algo</label></li>
+		</ul>
 	</div>
 	<div class="tab-body" id="code-body">
 		Import your module as:
 	</div>
 </div>
-<div id="msg-wrapper" class="active">
-	<div class="msg">
-		<h2>Message title</h2>
-		<div class="content">
-			This is message content. It can include any html entities.<hr>
-			<img src="img.jpg" />
-		</div>
-		<div class="actions">
-			<button type="button">Apply</button>
-			<button type="button">Close</button>
-		</div>
-	</div>
-</div>
+<div id="msg-wrapper"></div>
 </body>
 </html>

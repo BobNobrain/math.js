@@ -37,6 +37,7 @@ window.addEventListener('load', function()
 		text: document.getElementById('command'),
 		output: document.getElementById('output'),
 		outputScroller: document.getElementById('output-clone'),
+		messageContainer: document.getElementById('msg-wrapper'),
 		tabs: {
 			console: [document.getElementById('console-head'), document.getElementById('console-body')],
 			modules: [document.getElementById('modules-head'), document.getElementById('modules-body')],
