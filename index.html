@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/console.css">
 	<link rel="stylesheet" href="styles/message.css">
+	<link rel="stylesheet" href="styles/modules.css">
 	<script src="script/formatting.js"></script>
 	<script src="script/message.js"></script>
 	<script src="script/console.js"></script>
@@ -66,14 +67,20 @@
 	<div class="tab-body" id="modules-body">
 		Select modules to use:
 		<ul id="modules-list">
+			<li class="header"><a href="#">math</a><span class="description"> - basic math functionality</span></li>
 			<li><label><input type="checkbox" />math.core</label></li>
 			<li><label><input type="checkbox" />math.func</label></li>
 			<li><label><input type="checkbox" />math.stat</label></li>
+			<li class="header"><a href="#">neuro</a><span class="description"> - allows you to work with neural webs</span></li>
 			<li><label><input type="checkbox" />neuro.core</label></li>
 			<li><label><input type="checkbox" />neuro.ui</label></li>
+
+			<li class="header"><a href="#">graph</a><span class="description"> - contains classes to work with graphs</span></li>
 			<li><label><input type="checkbox" />graph.core</label></li>
 			<li><label><input type="checkbox" />graph.algo</label></li>
 		</ul>
+		<span id="modules-changed">You have some unapplied changes</span>
+		<button type="button" id="modules-apply">Apply changes</button>
 	</div>
 	<div class="tab-body" id="code-body">
 		Import your module as:

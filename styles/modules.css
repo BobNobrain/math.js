@@ -1,0 +1,65 @@
+#modules-body {
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#modules-list {
+	list-style: none;
+	padding: 0px; margin: 2px;
+	border: 1px solid #bbb;
+	height: calc(100% - 3em - 10px);
+	overflow: auto;
+	margin-bottom: 5px;
+}
+
+#modules-list li {
+	padding: 0px;
+	width: 100%;
+}
+
+#modules-list li label {
+	padding: 3px;
+	cursor: pointer;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+}
+#modules-list li:nth-child(2n) label {
+	background: #292929;
+}
+#modules-list li label:hover {
+	background: #183060;
+}
+
+#modules-list li label input {
+	margin-right: 10px;
+}
+
+#modules-list li.header {
+	padding: 10px 10px 0 15px;
+	border-bottom: 1px solid #333;
+	background: transparent;
+	box-sizing: border-box;
+}
+
+#modules-list li.header a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #bbb;
+	cursor: help;
+}
+#modules-list li.header a:hover {
+	color: #248;
+}
+#modules-list li.header:hover a {
+	text-decoration: underline;
+}
+
+#modules-list li.header span.description {
+	color: #444;
+}
+
+#modules-apply {
+	float: right;
+	margin: 5px;
+}
