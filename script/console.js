@@ -104,10 +104,6 @@ window.addEventListener('load', function()
 
 	function execute(code, context)
 	{
-		/*code=code.replace(/["\\]/g, '\\$1')
-			.replace(/('.*?[^\\])(\\\n)(.*?)'/g, '$1$3')
-			.replace()
-			.replace();*/
 		var props = Object.getOwnPropertyNames(context);
 		var values = props.map(function(item){ return context[item]; });
 
@@ -350,7 +346,6 @@ function formOutput(obj)
 				code=code.replace(new RegExp('([^A-z0-9_$]|^)('+item+')([^A-z0-9_$]|$)', 'g'),
 								  '$1<span class="keyword3">$2</span>$3');
 			});
-			console.log(code);
 			return new FormattedText().html(fmt.whitespaces(code));
 		}
 	})[typeof obj];

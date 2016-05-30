@@ -180,6 +180,16 @@ FormattedText.prototype.html=function(text)
 	});
 	return this;
 };
+FormattedText.prototype.br=function()
+{
+	this.pointer.push({
+		render: function()
+		{
+			return document.createElement('br');
+		}
+	});
+	return this;
+};
 
 FormattedText.prototype.render=function()
 {
