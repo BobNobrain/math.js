@@ -108,7 +108,7 @@ class Mat
 		}
 		try
 		{
-			mat.add(this);
+			return mat.add(this);
 		}
 		catch(ex)
 		{
@@ -124,6 +124,7 @@ class Mat
 
 	get det()
 	{
+		// TODO: rewrite with abstract arithmetics!
 		if(this.cols != this.rows) return undefined;
 		if(this.rows==2) return this.data[0][0]*this.data[1][1] - this.data[0][1]*this.data[1][0];
 
@@ -168,7 +169,7 @@ class Mat
 		{
 			for(let col = 0; col < this.cols; ++col)
 			{
-				action.call(thisArg, this.data, row, col, this);
+				action.call(thisArg, this.data[row][col], row, col, this);
 			}
 		}
 	}
@@ -180,9 +181,10 @@ class Mat
 		{
 			for(let col = 0; col < this.cols; ++col)
 			{
-				result.data[row][col]=mapping.call(thisArg, this.data, row, col, this);
+				result.data[row][col]=mapping.call(thisArg, this.data[row][col], row, col, this);
 			}
 		}
+		return result;
 	}
 	some(check, thisArg=this)
 	{
@@ -191,7 +193,7 @@ class Mat
 		{
 			for(let col = 0; col < this.cols; ++col)
 			{
-				if(check.call(thisArg, this.data, row, col, this)) return true;
+				if(check.call(thisArg, this.data[row][col], row, col, this)) return true;
 			}
 		}
 		return false;
@@ -203,7 +205,7 @@ class Mat
 		{
 			for(let col = 0; col < this.cols; ++col)
 			{
-				if(!check.call(thisArg, this.data, row, col, this)) return false;
+				if(!check.call(thisArg, this.data[row][col], row, col, this)) return false;
 			}
 		}
 		return true;
